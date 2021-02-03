@@ -5,3 +5,5 @@ symfony 5
 Easyadmin bundler
 
 Composer
+
+Doctrine (ORM)

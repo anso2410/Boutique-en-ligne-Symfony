@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Classe\Cart;
 use App\Entity\Order;
+use App\Entity\Product;
 use Doctrine\ORM\EntityManagerInterface;
 use Stripe\Checkout\Session;
 use Stripe\Stripe;
@@ -24,25 +25,41 @@ class StripeController extends AbstractController
 
         $order = $entityManager->getRepository(Order::class)->findOneByReference($reference);
 
-        dd($order);
+        if(!$order) {
+            new JsonResponse(['error' =>'order']);
+        }
 
-        foreach ($cart->getFull() as $product) {
+        foreach ($order->getOrderDetails()->getValues() as $product) {
+            $product_object =  $entityManager->getRepository(Product::class)->findOneByName($product->getProduct());
             $products_for_stripe [] = [
                 'price_data' => [
                     'currency' => 'eur',
-                    'unit_amount' =>$product['product']->getPrice(),
+                    'unit_amount' =>$product->getPrice(),
                     'product_data' => [
-                        'name' => $product['product']->getName(),
-                        'images' => [$YOUR_DOMAIN."/uploads/".$product['product']->getIllustration()],
+                        'name' => $product->getProduct(),
+                        'images' => [$YOUR_DOMAIN."/uploads/".$product_object->getIllustration()],
                     ],
                 ],
-                'quantity' => $product['quantity'],
+                'quantity' => $product->getQuantity(),
             ];
         }
+
+        $products_for_stripe [] = [
+            'price_data' => [
+                'currency' => 'eur',
+                'unit_amount' =>$order->getCarrierPrice() * 100,
+                'product_data' => [
+                    'name' => $order->getCarrierName(),
+                    'images' => [$YOUR_DOMAIN], // image en production ex: collissimo Bpost ect..
+                ],
+            ],
+            'quantity' => 1,
+        ];
 
         Stripe::setApiKey('sk_test_51IEBWIDKplIyHuaRcBvPhjO4V28o3eMdyIUrS8HVtZQY87PRtWxsZertEgRLqeI6cVz2WJzLPcvuZ5cACtcFrLdp00bzhDWywK');
 
         $checkout_session = Session::create([
+            'customer_email' => $this->getUser()->getEmail(),
             'payment_method_types' => ['card'],
             'line_items' => [
                 $products_for_stripe
