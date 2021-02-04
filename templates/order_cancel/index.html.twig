@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Erreur de paiement - La Boutique d'Anso{% endblock %}
+
+{% block content %}
+
+    <h2>Erreur de paiement</h2>
+    <p>Bonjour <strong>{{ order.user.firstname }}</strong> <b>{{ order.user.lastname }},</b><br><br>
+        Il semblerait que votre paiement pour la commande : n°<strong>{{ order.reference}} est échoué.</strong><br>
+        Une confirmation d'échec de transaction vient de vous être envoyée par email, à l'adresse <strong>{{ order.user.email }}</strong>
+    <hr>
+    <a href="{{ path('order') }}">Réessayer le paiement</a>
+{% endblock %}
