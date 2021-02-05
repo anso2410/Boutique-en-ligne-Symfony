@@ -1,32 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mes adresses - LA Boutique Française{% endblock %}
+{% block title %}Mes adresses - La Boutique d'Anso{% endblock %}
 
 {% block content %}
-
     <a href="{{ path('account_address_add') }}" class="btn btn-info btn-sm float-right">Ajouter une adresse</a>
-
     <h1>Mes adresses</h1>
-
-    Bienvenue {{ app.user.firstname}} dans votre compte.
-    <br/>
-    C'est dans cet espace que vous allez pouvoir gérer toutes vos adresses.
-
-    <br>
-
+    Bienvenue {{ app.user.firstname}} dans votre compte.<br/>
+    C'est dans cet espace que vous allez pouvoir gérer toutes vos adresses.<br>
     <a href="{{ path('account') }}">Retour</a>
-    
     <hr/>
-
     {% if app.user.addresses|length == 0 %}
         <p class="text-center">
-            Vous n'avez pas encore ajouté d'adresse dans votre compte client
-
-            Pour en ajouter une, veuillez <a href="{{ path('account_address_add') }}">cliquer ici</a>.
+            Vous n'avez pas encore ajouté d'adresse dans votre compte client. Pour en ajouter une, veuillez <a href="{{ path('account_address_add') }}">cliquer ici</a>.
         </p>
-
     {% else%}
-
         <div class="row">
             {% for address in app.user.addresses %}
                 <div class="col-md-4">
@@ -47,9 +34,5 @@
                 </div>
             {% endfor %}
         </div>
-
     {% endif %}
-
-
-
 {% endblock %}

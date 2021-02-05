@@ -6,13 +6,13 @@
 
     <h2>Confirmation de commande</h2>
     <p>Bonjour <strong>{{ order.user.firstname }}</strong> <b>{{ order.user.lastname }},</b><br><br>
-        Nous vous remercions pour votre commande n°<strong>{{ order.reference}}.</strong><br>
+        Nous vous remercions pour votre commande n° <strong>{{ order.reference}}</strong>  pour un montant total de :  <span class="badge badge-dark">{{  ((order.carrierPrice + order.getTotal) / 100)|number_format(2, ',','.') }}</span>  € <br><br>
         Une confirmation vient de vous être envoyée par email, à l'adresse <strong>{{ order.user.email }}</strong>
     <hr>
-    Votre commande sera livrée par {{ order.carrierName }} à l'adresse suivante : <br>
+    Votre commande sera livrée <strong>{{ order.carrierName }}</strong>  à l'adresse suivante : <br>
    <strong>{{ order.delivery|raw }}</strong>
     <hr>
-    Pour suivre votre commande, rendez-ous dans votre <strong><a href="{{ path('account') }}">espace personnel (Mon compte)</a></strong>
+    Pour voir vos commandes, rendez-vous dans votre <strong><a href="{{ path('account_order') }}">espace personnel (Mes commandes)</a></strong>
     </p>
 
 {% endblock %}
