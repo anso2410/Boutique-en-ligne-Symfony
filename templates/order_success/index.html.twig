@@ -4,7 +4,7 @@
 
 {% block content %}
 
-    <h2>Confirmation de commande</h2>
+    <h2 class="mt-5">Confirmation de commande</h2>
     <p>Bonjour <strong>{{ order.user.firstname }}</strong> <b>{{ order.user.lastname }},</b><br><br>
         Nous vous remercions pour votre commande n° <strong>{{ order.reference}}</strong>  pour un montant total de :  <span class="badge badge-dark">{{  ((order.carrierPrice + order.getTotal) / 100)|number_format(2, ',','.') }}</span>  € <br><br>
         Une confirmation vient de vous être envoyée par email, à l'adresse <strong>{{ order.user.email }}</strong>

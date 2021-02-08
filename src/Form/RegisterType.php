@@ -40,13 +40,13 @@ class RegisterType extends AbstractType
                 ]
             ])
             ->add('email', EmailType::class, [
-                'label'=>'Votre e-mail',
+                'label'=>'Votre email',
                 'constraints'=> new Length([
                     'min'=>2,
                     'max'=>100
                 ]),
                 'attr'=> [
-                    'placeholder'=> 'Merci de saisir votre adresse e-mail'
+                    'placeholder'=> 'Merci de saisir votre adresse email'
                 ]
             ])
             ->add('password', RepeatedType::class, [

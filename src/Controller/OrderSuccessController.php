@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Classe\Cart;
+use App\Classe\Mail;
 use App\Entity\Order;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -35,11 +36,15 @@ class OrderSuccessController extends AbstractController
         if (!$order->getIsPaid()) {
             // vider la session "cart".
             $cart->remove();
+            //Modifier le statut isPaid
             $order->setIsPaid(1);
             $this->entityManager->flush();
 
 
             // Envoyer un email à notre client pour lui confirmer sa commande.
+            $mail = new Mail();
+            $content ="Bonjour ".$order->getUser()->getFirstname()."<br/>Merci pour votre commande.<br><br/>Lorem ipsum dolor sit amet, consectetexplicabo fugit, harum inventore molestias optio repellendus suscipit voluptas.Asperiores debitis distinctio, esse, est in inventore,temporibus voluptates. Ab corporis eveniet fugit nulla odio officiis quisquam repellendus saepe!";
+            $mail->send($order->getUser()->getEmail(), $order->getUser()->getFirstname(),'Votre commande La Boutique d\'Anso est bien validée', $content);
 
         }
 

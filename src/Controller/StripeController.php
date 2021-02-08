@@ -21,7 +21,7 @@ class StripeController extends AbstractController
     public function index(EntityManagerInterface $entityManager, Cart $cart, $reference): Response
     {
         $products_for_stripe = [];
-        $YOUR_DOMAIN = 'http://127.0.0.1:8000';
+        $YOUR_DOMAIN = 'http://127.0.0.1:8000'; // changer l'adresse en production.
 
         $order = $entityManager->getRepository(Order::class)->findOneByReference($reference);
 
@@ -37,7 +37,7 @@ class StripeController extends AbstractController
                     'unit_amount' =>$product->getPrice(),
                     'product_data' => [
                         'name' => $product->getProduct(),
-                        'images' => [$YOUR_DOMAIN."/uploads/".$product_object->getIllustration()],
+                        'images' => [$YOUR_DOMAIN."/uploads/".$product_object->getIllustration()],// changer l'adresse en production pour l'affichage des images.
                     ],
                 ],
                 'quantity' => $product->getQuantity(),

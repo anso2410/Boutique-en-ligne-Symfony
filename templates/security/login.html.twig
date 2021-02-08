@@ -16,11 +16,11 @@
                 </div>
             {% endif %}
 
-            <h1 class="h3 mb-3 font-weight-normal">Merci de vous connecter</h1>
-            <label for="inputEmail">Votre adresse e-mail</label>
-            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Votre adresse e-mail" required autofocus>
-            <label for="inputPassword">Votre mot de passe</label>
-            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Votre mot de passe" required>
+            <h1 class="h3 mb-3 font-weight-bold mt-5">Merci de vous connecter</h1>
+            <label for="inputEmail" class="font-weight-bold">Votre adresse email</label>
+            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control mb-4 " placeholder="Votre adresse email" required autofocus>
+            <label for="inputPassword" class="font-weight-bold">Votre mot de passe</label>
+            <input type="password" name="password" id="inputPassword" class="form-control " placeholder="Votre mot de passe" required>
 
             <input type="hidden" name="_csrf_token"
                    value="{{ csrf_token('authenticate') }}"
@@ -43,8 +43,8 @@
 
             <hr>
 
-            <p class="text-center">
-                <a href="{{ path('register') }}">Ou souhaitez-vous réer un compte</a>
+            <p class="text-center font-weight-bold">
+                <a href="{{ path('register') }}">Ou souhaitez-vous créer un compte ?</a>
             </p>
 
         </form>

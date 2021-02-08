@@ -3,6 +3,14 @@
 {% block content %}
     <h1 class="mt-5">Inscription</h1>
 
+    {% if notification %}
+        <div class="alert alert-success">{{ notification }}</div>
+        {% endif %}
+{% if notification_error %}
+        <div class="alert alert-danger">{{ notification_error }}</div>
+
+    {% endif %}
+    <hr>
     {{ form(form) }}
     
     
