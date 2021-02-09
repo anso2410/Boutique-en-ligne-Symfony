@@ -45,37 +45,29 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ path('products') }}">Nos produits</a>
                 </li>
-                
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ path('home') }}">Qui sommes-nous</a>
                 </li>
-                
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ path('home') }}">Contact</a>
                 </li>
             </ul>
-
             <div class="navbar-item-custom">
                 {% if app.user %}
-            
                     <a href="{{ path('account') }}">Mon compte <small>( {{ app.user.firstname }} )</small></a> | <a href="{{ path('app_logout') }}">Déconnexion</a>
-            
                 {% else %}
                     <a href="{{ path('app_login') }}">Connexion</a> | <a href="{{ path('register') }}">Inscription</a>
-            
-                {% endif %}    
+                {% endif %}
             </div>
-
             <a href="{{ path('cart') }}">
                 <img src="{{ asset('assets/img/shopping-cart.png') }}" class="cart-icon" alt="Mon panier">
             </a>
-            
         </div>
     </nav>
 </header>
 
 <main role="main">
-
+    <!-- carousel ne s'affiche que si il est defini  -->
     {% if block('carousel') is defined %}
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -124,28 +116,20 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-    
     {% endif %}
 
-
-   <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
-
-    <div class="container marketing{% if block('carousel') is not defined %}mt-5{% endif %}">
-
-    {% block content %}
-    
-    {% endblock %}
-
-    </div><!-- /.container -->
+    <!-- contenu page index.html.twig -->
+    <div class="container marketing {% if block('carousel') is not defined %}mt-5{% endif %}">
+        {% block content %}
+        {% endblock %}
+    </div>
 
     <!-- FOOTER -->
     <footer class="footer-custom ">
 
         <p> La Boutique d'Anso<br>
             <small>  La boutique 100% made in Belgium
-                <a href="#">| Privacy</a> &middot; <a href="#">Terms</a> | &copy; 2017-2021</small>
+                <a href="#">| Privacy</a> &middot; <a href="#">Terms</a> | &copy 2017-2021</small>
         </p>
     </footer>
 </main>

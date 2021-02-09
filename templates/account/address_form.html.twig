@@ -3,17 +3,11 @@
 {% block title %}Ajouter une adresse - La Boutique d'Anso{% endblock %}
 
 {% block content %}
-
-    <h1>Gérer mes adresses</h1>
-
-    <br>
-
+    <h1 class = 'mt-5'>Gérer mes adresses</h1><br>
     <a href="{{ path('account_address') }}">Retour</a>
-
     <hr/>
-
     {{ form_start(form) }}
-    <div class="row">
+    <div class="row font-weight-bold">
         <div class="col-md-12">{{ form_row(form.name) }}</div>
         <div class="col-md-6">{{ form_row(form.firstname) }}</div>
         <div class="col-md-6">{{ form_row(form.lastname) }}</div>
@@ -24,7 +18,5 @@
         <div class="col-md-6">{{ form_row(form.country) }}</div>
         <div class="col-md-6">{{ form_row(form.phone) }}</div>
     </div>
-
     {{ form_end(form) }}
-
 {% endblock %}

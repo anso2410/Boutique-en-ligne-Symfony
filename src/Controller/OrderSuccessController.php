@@ -33,11 +33,11 @@ class OrderSuccessController extends AbstractController
 
         // Modifier le statut isPaid de notre commande en mettant 1 si payée.
        // $cart->remove(); test car paiement réel non actif.
-        if (!$order->getIsPaid()) {
+        if ($order->getState() == 0 ) {
             // vider la session "cart".
             $cart->remove();
             //Modifier le statut isPaid
-            $order->setIsPaid(1);
+            $order->setState(1);
             $this->entityManager->flush();
 
 

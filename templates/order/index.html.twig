@@ -3,16 +3,9 @@
 {% block title %}Valider ma commande - La Boutique d'Anso {% endblock %}
 
 {% block content %}
-    <h2 class="mt-5">
-        Je passe ma commande
-    </h2>
-
-    <p>
-        Choisissez vos préférences avant de passer votre commande.
-    </p>
-
+    <h2 class="mt-5"><strong>Je passe ma commande</strong></h2>
+    <p>Choisissez vos préférences avant de passer votre commande.</p>
     <hr>
-
     <div class="row">
         <div class="col-md-6">
             {% set formHtml %}
@@ -23,12 +16,10 @@
             {% endset %}
             {{ formHtml|replace({'[br]' : '<br/>'})|raw }}
         </div>
-
         <div class="col-md-6">
             <div class="text-center">
                 <p class="font-weight-bold">Ma commande :</p>
-            </div>
-            <br>
+            </div><br>
             <div class="order-summary">
                 {% for key, product in cart %}
                     <div class="row {% if key > 0%}mt-2{% endif %}">
@@ -36,8 +27,7 @@
                             <img src="/uploads/{{ product.product.illustration }}" alt="{{ product.product.name }}" height="75px">
                         </div>
                         <div class="col-8 my-auto">
-                            {{ product.product.name }}
-                            <br>
+                            {{ product.product.name }}<br>
                             <small>{{ product.product.subtitle }}</small>
                         </div>
                         <div class="col-2 my-auto">
@@ -48,7 +38,4 @@
             </div>
         </div>
     </div>
-
-
-
 {% endblock %}
