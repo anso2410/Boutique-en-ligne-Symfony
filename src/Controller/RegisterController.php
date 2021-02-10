@@ -54,7 +54,8 @@ class RegisterController extends AbstractController
                 $content ="Bonjour ".$user->getFirstname()."<br>Bienvenue sur la première boutique dédiée au made in Belgium.<br><br>Lorem ipsum dolor sit amet, consectetexplicabo fugit, harum inventore molestias optio repellendus suscipit voluptas.Asperiores debitis distinctio, esse, est in inventore,temporibus voluptates. Ab corporis eveniet fugit nulla odio officiis quisquam repellendus saepe!";
                 $mail->send($user->getEmail(), $user->getFirstname(),"Bienvenue sur La Boutique d'Anso", $content);
 
-                $notification = "Votre inscription s'est correctement déroulée. Vous pouvez dès à présent vous connecter à votre compte. ";
+              //  $notification = "Votre inscription s'est correctement déroulée. Vous pouvez dès à présent vous connecter à votre compte. ";
+                return $this->redirectToRoute('app_login');
             }else {
 
                 $notification_error = "L'email que vous avez renseigné existe déjà.";
