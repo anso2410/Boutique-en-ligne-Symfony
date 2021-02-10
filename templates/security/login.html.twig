@@ -3,12 +3,15 @@
 {% block title %}Se connecter - La Boutique d'Anso{% endblock %}
 
 {% block content %}
-
     <div class="block-small">
         <form method="post">
             {% if error %}
                 <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
             {% endif %}
+
+            {% for message in app.flashes('notice') %}
+                <div class="alert alert-info">{{ message }}</div>
+            {% endfor %}
 
             {% if app.user %}
                 <div class="mb-3">
@@ -21,10 +24,7 @@
             <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control mb-4 " placeholder="Votre adresse email" required autofocus>
             <label for="inputPassword" class="font-weight-bold">Votre mot de passe</label>
             <input type="password" name="password" id="inputPassword" class="form-control " placeholder="Votre mot de passe" required>
-
-            <input type="hidden" name="_csrf_token"
-                   value="{{ csrf_token('authenticate') }}"
-            >
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
             {#
                 Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
@@ -36,18 +36,10 @@
                     </label>
                 </div>
             #}
-
-            <button class="btn btn-lg btn-info btn-block mt-3" type="submit">
-                Se connecter
-            </button>
-
+            <button class="btn btn-lg btn-info btn-block mt-3" type="submit">Se connecter</button>
             <hr>
-
-            <p class="text-center font-weight-bold">
-                <a href="{{ path('register') }}">Ou souhaitez-vous créer un compte ?</a>
-            </p>
-
+            <p class="text-center font-weight-bold"> <a href="{{ path('reset_password') }}">Mot de passe oublié</a> ?</p>
+            <p class="text-center font-weight-bold">Ou souhaitez <a href="{{ path('register') }}"> créer un compte</a> ?</p>
         </form>
     </div>
-
 {% endblock %}

@@ -24,33 +24,25 @@ class AccountPasswordController extends AbstractController
      */
     public function index(Request $request, UserPasswordEncoderInterface $encoder): Response
     {
-        
         $notification = null;
         
         $user = $this->getUser();
-        
         $form = $this->createForm(ChangePasswordType::class, $user);
         
         $form->handleRequest($request);
         
         if($form->isSubmitted() && $form->isValid()) {
-            
             $old_pwd = $form->get('old_password')->getData();
             
             if($encoder->isPasswordValid($user, $old_pwd)) {
-                
                 $new_pwd = $form->get('new_password')->getData();
-                
                 $password = $encoder->encodePassword($user, $new_pwd);
-                
-                $this->entityManager->persist($user);
-                $this->entityManager->flush();
-                
-                $notification = "Votre mot de passe a bien été mis à jour.";
 
-            }
-            
-            else {
+                $user->setPassword($password);
+                //$this->entityManager->persist($user);
+                $this->entityManager->flush();
+                $notification = "Votre mot de passe a bien été mis à jour.";
+            } else {
                 $notification = "Votre mot de passe n'est pas le bon.";
             }
             
