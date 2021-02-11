@@ -68,7 +68,10 @@ body {
 .order-summary {
     background-color: #f4f8ff;
     padding: 20px;
-    margin-top: 20px;
 }
 
-
+.order-summary-perso {
+    background-color: #f4f8ff;
+    padding: 20px;
+    margin-top: 25px;
+}

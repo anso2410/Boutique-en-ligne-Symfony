@@ -7,7 +7,7 @@
     <h1 class="mt-5">Mes adresses</h1>
     Bienvenue {{ app.user.firstname}} dans votre compte.<br/>
     C'est dans cet espace que vous allez pouvoir gérer toutes vos adresses.<br>
-    <a href="{{ path('account') }}">Retour</a>
+    <a href="{{ path('account') }}">Retour vers "Mon compte"</a>
     <hr/>
     {% if app.user.addresses|length == 0 %}
         <p class="text-center">

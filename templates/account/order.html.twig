@@ -6,7 +6,7 @@
     <h1 class="mt-5">Mes commandes</h1>
     Bienvenue {{ app.user.firstname}} dans votre compte.<br/>
     C'est dans cet espace que vous allez pouvoir gérer toutes vos commandes.<br>
-   <span class="badge badge-light"><a href="{{ path('account') }}">Retour</a></span>
+   <span class="badge badge-light"><a href="{{ path('account') }}">Retour vers "Mon compte"</a></span>
     {% if orders|length == 0 %}
         <hr/>
         <p class="text-center">Vous n'avez pas encore passé de commande sur La Boutique d'Anso.</p>

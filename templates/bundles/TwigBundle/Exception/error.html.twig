@@ -1,1 +1,11 @@
-dfgvbgfhfhhfhfhfh
+{% extends 'base.html.twig' %}
+
+{% block title %}Page introuvable - La Boutique d'Anso{% endblock %}
+
+{% block content %}
+    <div class="block-small">
+     <h2>Page Introuvable</h2>
+        <p>désolé cette page n'est pas accessible pour le moment.</p>
+        <a href="{{ path('home') }}" class="btn btn-info">Revenir à l'acceuil</a>
+    </div>
+{% endblock %}

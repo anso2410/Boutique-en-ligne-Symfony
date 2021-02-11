@@ -8,12 +8,12 @@
             <h3>Filtrer</h3>
             {{ form(form) }}
         </div>
-        <div class="col-md-9">
+        <div class="col-md-9 ">
             <h3>Nos produits</h3>
 
             <div class="row product-container">
                 {% for product in products %}
-                    <div class="col-md-4">
+                    <div class="col-md-4 ">
                         {% include 'product/single_product.html.twig' %}
                     </div>        
                 {% endfor %}

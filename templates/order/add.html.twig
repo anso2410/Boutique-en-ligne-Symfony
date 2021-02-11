@@ -36,7 +36,7 @@
                <b>Ma commande</b> <br>
             </div>
 
-            <div class="order-summary">
+            <div class="order-summary order-summary-perso">
                 {% set total = null %}
                 {% for key, product in cart %}
                     <div class="row {% if key > 0%}mt-2{% endif %}">

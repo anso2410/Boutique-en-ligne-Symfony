@@ -44,19 +44,19 @@ class AddressType extends AbstractType
             ->add('address', TextType::class, [
                 'label' => 'Votre adresse?',
                 'attr' => [
-                    'placeholder' => '8 rue du pont'
+                    'placeholder' => ' ex : 8 rue du pont'
                 ]
             ])
             ->add('postal', TextType::class, [
                 'label' => 'Votre code postal',
                 'attr' => [
-                    'placeholder' => '75081'
+                    'placeholder' => ' ex : 75081'
                 ]
             ])
             ->add('city', TextType::class, [
                 'label' => 'Votre ville',
                 'attr' => [
-                    'placeholder' => 'Paris'
+                    'placeholder' => ' ex: Paris'
                 ]
             ])
             ->add('country', CountryType::class, [

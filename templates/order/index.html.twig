@@ -17,10 +17,10 @@
             {{ formHtml|replace({'[br]' : '<br/>'})|raw }}
         </div>
         <div class="col-md-6">
-            <div class="text-center">
-                <p class="font-weight-bold">Ma commande :</p>
+            <div class="text-center ">
+                <p class="font-weight-bold mt-2">Ma commande :</p>
             </div><br>
-            <div class="order-summary">
+            <div class="order-summary ">
                 {% for key, product in cart %}
                     <div class="row {% if key > 0%}mt-2{% endif %}">
                         <div class="col-2">
