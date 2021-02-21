@@ -15,17 +15,20 @@
 
     <div class="row">
         <div class="col-md-4">
-            <div class="account-item">
+            <div class="account-item text-center font-weight-bold">
+                <img src="{{ asset('assets/img/padlock.png') }}" alt="Modifier mon mot de passe" class="mb-4"><br>
                 <a href="{{ path('account_password') }}">Modifier mon mot de passe</a>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="account-item">
+            <div class="account-item text-center font-weight-bold">
+                <img src="{{ asset('assets/img/adress-book.png') }}" alt="Gérer mes adresses" class="mb-4"><br>
                 <a href="{{ path('account_address') }}">Gérer mes adresses</a>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="account-item">
+            <div class="account-item text-center font-weight-bold">
+                <img src="{{ asset('assets/img/shopping-bag.png') }}" alt="Mes commandes" class="mb-4"><br>
                 <a href="{{ path('account_order') }}">Mes commandes</a>
             </div>
         </div>

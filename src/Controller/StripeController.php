@@ -21,7 +21,7 @@ class StripeController extends AbstractController
     public function index(EntityManagerInterface $entityManager, Cart $cart, $reference): Response
     {
         $products_for_stripe = [];
-        $YOUR_DOMAIN = 'http://127.0.0.1:8000'; // changer l'adresse en production.
+        $YOUR_DOMAIN = 'https://symfony.shop.as4coding.be'; // changer l'adresse en production.
 
         $order = $entityManager->getRepository(Order::class)->findOneByReference($reference);
 
