@@ -21,7 +21,7 @@ class StripeController extends AbstractController
     public function index(EntityManagerInterface $entityManager, Cart $cart, $reference): Response
     {
         $products_for_stripe = [];
-        $YOUR_DOMAIN = 'https://symfony.shop.as4coding.be'; // changer l'adresse en production.
+        $YOUR_DOMAIN = 'https://www.symfony.shop.as4coding.be'; // changer l'adresse en production.
 
         $order = $entityManager->getRepository(Order::class)->findOneByReference($reference);
 
@@ -37,7 +37,7 @@ class StripeController extends AbstractController
                     'unit_amount' =>$product->getPrice(),
                     'product_data' => [
                         'name' => $product->getProduct(),
-                        'images' => [$YOUR_DOMAIN."/uploads/".$product_object->getIllustration()],// changer l'adresse en production pour l'affichage des images.
+                        'images' => ['https://www.as4coding.be'."/uploads/".$product_object->getIllustration()],// changer l'adresse en production pour l'affichage des images.
                     ],
                 ],
                 'quantity' => $product->getQuantity(),
