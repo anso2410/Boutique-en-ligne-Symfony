@@ -1,6 +1,6 @@
 .env
 .env.test
-/src/Classe/Mail.php
+/Mail.php
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
